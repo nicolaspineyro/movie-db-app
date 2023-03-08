@@ -1,16 +1,16 @@
 import { useQuery } from "react-query";
-import { getPopularMovies, getUpcomingMovies } from "../../utils/api/movies";
+// import { getPopularMovies, getUpcomingMovies } from "../../api/movies";
 import { MovieI } from "../../utils/interfaces";
 import MovieCard from "../home/movie-card";
 
 const PopularMovies = ({ selected }: { selected: number }) => {
-  const { data: popularMoviesData, isLoading } = useQuery(
-    "getPopularMovies",
-    () => getPopularMovies(query)
-  );
+  // const { data: popularMoviesData, isLoading } = useQuery(
+  //   "getPopularMovies",
+  //   () => getPopularMovies(query)
+  // );
   return (
     <div className="grid grid-cols-auto px-4 sm:grid-cols-2">
-      {isLoading ? (
+      {/* {isLoading ? (
         <p>loading..</p>
       ) : (
         popularMoviesData?.popularMovies?.map(
@@ -19,21 +19,9 @@ const PopularMovies = ({ selected }: { selected: number }) => {
             return <MovieCard movie={movie} key={`movie-card-${index}`} />;
           }
         )
-      )}
+      )} */}
     </div>
   );
 };
-
-const query = `{
-    popularMovies {
-        id,
-        poster_path,
-        backdrop_path,
-        title,
-        overview,
-        release_date,
-        vote_average,
-      }
-    }`;
 
 export default PopularMovies;

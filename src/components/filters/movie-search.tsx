@@ -1,7 +1,7 @@
 import { SetStateAction, useEffect, useMemo, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useQuery } from "react-query";
-import { searchMovie } from "../../utils/api/movies";
+// import { searchMovie } from "../../api/movies";
 import debounce from "lodash.debounce";
 import { MovieI } from "../../utils/interfaces";
 import MovieCard from "../home/movie-card";
@@ -10,35 +10,24 @@ const MovieSearch = () => {
   const [search, setSearch] = useState("");
   const handleChange = (e: { target: { value: SetStateAction<string> } }) =>
     setSearch(e.target.value);
-  const query = `{
-      searchMovie(term:"${search}") {
-          id,
-          poster_path,
-          backdrop_path,
-          title,
-          overview,
-          release_date,
-          vote_average,
-        }
-      }`;
 
-  const {
-    data: searchMovieData,
-    isLoading,
-    refetch,
-  } = useQuery("searchMovie", () => searchMovie(query), {
-    enabled: !!search.length,
-  });
+  // const {
+  //   data: searchMovieData,
+  //   isLoading,
+  //   refetch,
+  // } = useQuery("searchMovie", () => searchMovie(query), {
+  //   enabled: !!search.length,
+  // });
 
   const debouncedResults = useMemo(() => {
     return debounce(handleChange, 200);
   }, []);
 
-  useEffect(() => {
-    if (!!search.length) {
-      refetch();
-    }
-  }, [search]);
+  // useEffect(() => {
+  //   if (!!search.length) {
+  //     refetch();
+  //   }
+  // }, [search]);
 
   useEffect(() => {
     return () => {
@@ -56,7 +45,7 @@ const MovieSearch = () => {
           className={"bg-transparent appearance-none focus:outline-none w-full"}
         />
       </div>
-      <div>
+      {/* <div>
         {isLoading ? (
           <p>loading..</p>
         ) : !searchMovieData?.searchMovie?.length && search.length ? (
@@ -67,7 +56,7 @@ const MovieSearch = () => {
             return <MovieCard movie={movie} key={`movie-card-${index}`} />;
           })
         )}
-      </div>
+      </div> */}
     </section>
   );
 };
