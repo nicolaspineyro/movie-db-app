@@ -38,7 +38,7 @@ const NavigationMenu = () => {
         )}
       </section>
 
-      <SideBar toggleMenu={toggleMenu} />
+      {/* <SideBar toggleMenu={toggleMenu} /> */}
     </nav>
   );
 };
