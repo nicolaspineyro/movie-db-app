@@ -8,4 +8,12 @@ const getNowPlaying = async () => {
     .then((res) => res.data.results);
 };
 
-export { getNowPlaying };
+const getGenresList = async () => {
+  return axios
+    .get(`genre/movie/list`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data.genres);
+};
+
+export { getNowPlaying, getGenresList };

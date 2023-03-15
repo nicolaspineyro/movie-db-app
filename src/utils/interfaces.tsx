@@ -17,7 +17,7 @@ export interface StateI {
 interface MovieI {
   id: number;
   imdb_id: string;
-  genres?: { id: number; name: string }[];
+  genre_ids?: number[];
   production_companies: { id: number; name: string; logo_path?: string }[];
   poster_path: string;
   backdrop_path: string;
