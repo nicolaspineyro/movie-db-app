@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <>
       <ImageSlider data={nowPlayingMovies} genres={genresList} />
-      {/* <HomeContent /> */}
+      <HomeContent genres={genresList} />
     </>
   );
 };
