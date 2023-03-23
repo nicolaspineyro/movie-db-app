@@ -16,4 +16,20 @@ const getGenresList = async () => {
     .then((res) => res.data.genres);
 };
 
-export { getNowPlaying, getGenresList };
+const getTopRated = async () => {
+  return axios
+    .get(`movie/top_rated`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
+const getPopular = async () => {
+  return axios
+    .get(`movie/popular`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
+export { getNowPlaying, getGenresList, getTopRated, getPopular };

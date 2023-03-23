@@ -28,4 +28,9 @@ interface MovieI {
   vote_average: number;
 }
 
-export type { RouteI, MovieI };
+interface GenresI {
+  id: number;
+  name: string;
+}
+
+export type { RouteI, MovieI, GenresI };

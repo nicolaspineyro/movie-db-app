@@ -4,7 +4,7 @@
 
 @layer components {
     html {
-      font-family: 'Roboto Mono';
+      font-family: 'Inter', sans-serif
     }
     .sidebar-icon {
       @apply relative flex items-center justify-center 

@@ -8,7 +8,6 @@ const MovieList = ({
   data: MovieI[];
   isLoading: boolean;
 }) => {
-  console.log(data, "date en list");
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 sm:space-x-4 text-white">
       {isLoading ? (

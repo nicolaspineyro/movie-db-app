@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MovieI } from "../../utils/interfaces";
+import { GenresI, MovieI } from "../../utils/interfaces";
 import { MovieDataBaseIcon } from "../icons";
 
 const ImageSlider = ({
@@ -7,7 +7,7 @@ const ImageSlider = ({
   genres,
 }: {
   data: MovieI[];
-  genres: { id: number; name: string }[];
+  genres: GenresI[];
 }) => {
   const [index, setIndex] = useState<number>(0);
 
@@ -32,7 +32,7 @@ const ImageSlider = ({
       >
         <figcaption className="flex text-white flex-col space-y-2 justify-center text-center bg-gradient-to-t from-black w-full h-1/3 p-5 duration-1000">
           <span className="text-3xl font-bold">{title}</span>
-          <div className="flex flex-col justify-center items-center space-y-2">
+          <div className="flex pb-5 flex-col justify-center items-center space-y-2">
             <span className="text-slate-300 text-xs font-extralight">
               {
                 genres?.find((genre) => genre_ids && genre.id === genre_ids[0])
@@ -52,11 +52,10 @@ const ImageSlider = ({
                 {vote_average}
               </span>
             </div>
+            <span className="text-slate-300 text-xs line-clamp-3">
+              {overview}
+            </span>
           </div>
-
-          <span className="text-slate-300 text-xs line-clamp-3 mb-2">
-            {overview}
-          </span>
         </figcaption>
       </figure>
     </article>

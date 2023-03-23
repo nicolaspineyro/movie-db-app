@@ -19,9 +19,6 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
-      fontFamily: {
-        sans: ["Roboto", "Helvetica", "Arial", "sans-serif"],
-      },
       colors: {
         red: {
           default: "#FF0000",
