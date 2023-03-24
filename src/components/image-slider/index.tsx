@@ -18,7 +18,7 @@ const ImageSlider = ({
     if (index < data.length - 1) {
       setIndex(index + 1);
     } else setIndex(0);
-  }, 6000);
+  }, 7500);
 
   return (
     <article className="w-full h-[37rem]">
@@ -38,11 +38,6 @@ const ImageSlider = ({
                 genres?.find((genre) => genre_ids && genre.id === genre_ids[0])
                   ?.name
               }
-              {!!genre_ids?.length && genre_ids?.length > 1 && (
-                <span className="ml-2 text-slate-500">
-                  +{genre_ids?.length - 1}
-                </span>
-              )}
             </span>
             <div className="flex items-center space-x-2">
               <div className={"w-8"}>

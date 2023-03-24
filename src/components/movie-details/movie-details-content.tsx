@@ -2,23 +2,23 @@ import { FaStar } from "react-icons/fa";
 import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-// import { getMovieDetails } from "../../api/movies";
+import { getDetails } from "../../api/movies";
 import { MovieI, StateI } from "../../utils/interfaces";
 import { save } from "../../utils/redux/slices/favoritesSlice";
 import FavButton from "../ui/fav-button";
 
 const MovieDetailsContent = () => {
-  const { favoritesArray } = useSelector((state: StateI) => state.favorites);
+  // const { favoritesArray } = useSelector((state: StateI) => state.favorites);
 
   // const dispatch = useDispatch();
-  // const { id } = useParams();
+  const { id } = useParams();
   // const favoriteMovie = favoritesArray.some(
   //   ({ id: movieId }) => movieId === parseInt(id)
   // );
 
-  // const { data, isLoading } = useQuery("getMovieDetails", () =>
-  //   getMovieDetails(query)
-  // );
+  const { data, isLoading } = useQuery("getDetails", () => getDetails(id), {
+    enabled: !!id,
+  });
 
   // const saveToFavorites = () => {
   //   let newState;
@@ -36,33 +36,48 @@ const MovieDetailsContent = () => {
   //   dispatch(save(newState));
   // };
 
-  // if (isLoading) {
-  //   return <div className="text-white">Loading..</div>;
-  // }
+  if (!data) return <></>;
 
-  // const {
-  //   poster_path,
-  //   backdrop_path,
-  //   production_companies,
-  //   genres,
-  //   title,
-  //   overview,
-  //   runtime,
-  //   vote_average,
-  // }: MovieI = data?.movieDetail;
+  const {
+    backdrop_path,
+    production_companies,
+    title,
+    genre_ids,
+    release_date,
+    poster_path,
+    overview,
+    runtime,
+    vote_average,
+  }: MovieI = data;
+
+  const date = new Date(release_date).getFullYear();
 
   return (
-    <section className="text-black">
-      {/* <div className="relative">
-        <img
-          src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-          alt={"movie-poster"}
-          className={"md:h-auto"}
-        />
-        <span className="absolute bottom-3 left-3" onClick={saveToFavorites}>
+    <section className="text-white">
+      {/* <div className="relative"> */}
+      <div
+        style={{
+          backgroundImage: `url(${
+            import.meta.env.VITE_BASE_IMG_URL
+          }${poster_path})`,
+        }}
+        className="h-[80vh] bg-center bg-cover flex items-end"
+      >
+        <div className="px-8 space-y-4 bg-gradient-to-t from-black via-black to-transparent py-40">
+          <div className="flex justify-center items-center flex-col">
+            <span>{date}</span>
+            <button className="bg-black mix-blend-plus-lighter py-4 w-full rounded-xl">
+              Add to Favorites
+            </button>
+          </div>
+          <p className="text-md line-clamp-3 ">{overview}</p>
+        </div>
+      </div>
+
+      {/* <span className="absolute bottom-3 left-3" onClick={saveToFavorites}>
           <FavButton initialState={favoriteMovie} />
-        </span>
-      </div> */}
+        </span> */}
+      {/* </div> */}
 
       {/* <article className="text-center space-y-5 rounded-3xl p-5">
         <span className="text-4xl">{title}</span>

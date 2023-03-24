@@ -32,4 +32,12 @@ const getPopular = async () => {
     .then((res) => res.data);
 };
 
-export { getNowPlaying, getGenresList, getTopRated, getPopular };
+const getDetails = async (id: string) => {
+  return axios
+    .get(`movie/${id}`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
+export { getNowPlaying, getGenresList, getTopRated, getPopular, getDetails };
