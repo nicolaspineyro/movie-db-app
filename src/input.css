@@ -6,6 +6,18 @@
     html {
       font-family: 'Inter', sans-serif
     }
+
+    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* For IE, Edge and Firefox */
+    .scrollbar-hide {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+
     .sidebar-icon {
       @apply relative flex items-center justify-center 
       h-12 w-12 mt-2 mb-2 mx-auto  

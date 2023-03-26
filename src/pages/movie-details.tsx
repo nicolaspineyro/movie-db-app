@@ -1,10 +1,66 @@
-import MovieDetailsContent from "../components/movie-details/movie-details-content";
+import { useEffect, useState } from "react";
+import { BsPlus } from "react-icons/bs";
+import { FaStar } from "react-icons/fa";
+import { useQuery } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getDetails, getGenresList, getImages, getVideos } from "../api/movies";
+import { capitalize } from "../utils/helpers";
+import { MovieI, StateI } from "../utils/interfaces";
+import { save } from "../utils/redux/slices/favoritesSlice";
+import FavButton from "../components/ui/fav-button";
+import DetailContent from "../components/movie-details/detail-content";
+import VideoContent from "../components/movie-details/video-content";
+import ImageContent from "../components/movie-details/image-content";
+import Cast from "../components/movie-details/cast";
+import RelatedContent from "../components/movie-details/related-content";
+import AditionalContent from "../components/movie-details/aditional-content";
+import TextContent from "../components/movie-details/aditional-content";
 
 const MovieDetails = () => {
+  const { id } = useParams();
+
+  const { data, isLoading, refetch } = useQuery(
+    "getDetails",
+    () => getDetails(id),
+    {
+      enabled: !!id,
+    }
+  );
+  const {
+    data: images,
+    isLoading: imagesLoading,
+    refetch: imageRefetch,
+  } = useQuery("getImages", () => getImages(id), {
+    enabled: !!id,
+  });
+
+  useEffect(() => {
+    refetch();
+    imageRefetch();
+  }, [id]);
+
+  if (!images || !id || imagesLoading || isLoading) {
+    return <></>;
+  }
+
+  const getRandomImage = () => {
+    return images.backdrops.sort(() => Math.random() - 0.5)[0];
+  };
+
   return (
-    <>
-      <MovieDetailsContent />
-    </>
+    <section className="text-white">
+      <DetailContent data={data} images={images} />
+      <VideoContent id={id} />
+      <RelatedContent
+        id={id}
+        genre={data?.genres[0]}
+        image={getRandomImage()}
+      />
+      <ImageContent data={images?.backdrops} />
+      <Cast id={id} />
+      <TextContent data={data} />
+    </section>
   );
 };
 

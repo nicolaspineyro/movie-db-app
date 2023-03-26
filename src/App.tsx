@@ -16,7 +16,7 @@ const App = () => {
       <Provider store={store}>
         <Layout>
           <Routes>
-            {AppRoutes.map(({ id, compontent, path }) => (
+          {AppRoutes.map(({ id, compontent, path }) => (
               <Route element={compontent} path={path} key={`${id}-route`} />
             ))}
           </Routes>
