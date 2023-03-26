@@ -1,9 +1,17 @@
 import axios from "axios";
 
-const getNowPlaying = async () => {
+const getLatest = async () => {
+  return axios
+    .get(`movie/latest`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
+const getNowPlaying = async ({ page }: { page: number }) => {
   return axios
     .get(`movie/now_playing`, {
-      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY, page },
     })
     .then((res) => res.data.results);
 };
@@ -32,7 +40,7 @@ const getPopular = async () => {
     .then((res) => res.data);
 };
 
-const getDetails = async (id: string) => {
+const getDetails = async (id?: string) => {
   return axios
     .get(`movie/${id}`, {
       params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
@@ -40,4 +48,74 @@ const getDetails = async (id: string) => {
     .then((res) => res.data);
 };
 
-export { getNowPlaying, getGenresList, getTopRated, getPopular, getDetails };
+const getImages = async (id?: string) => {
+  return axios
+    .get(`movie/${id}/images`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
+const getRecommendations = async (id?: string) => {
+  return axios
+    .get(`movie/${id}/recommendations`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
+const getVideos = async (id?: string) => {
+  return axios
+    .get(`movie/${id}/videos`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
+const getWatchProviders = async (id?: string) => {
+  return axios
+    .get(`movie/${id}/watch/providers`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
+const getCredits = async (id?: string) => {
+  return axios
+    .get(`movie/${id}/credits`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
+const getSimilarMovies = async (id?: string) => {
+  return axios
+    .get(`movie/${id}/similar`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
+const getMovieDiscover = async ({ with_genres }: { with_genres: number }) => {
+  return axios
+    .get(`discover/movie`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY, with_genres },
+    })
+    .then((res) => res.data);
+};
+
+export {
+  getNowPlaying,
+  getGenresList,
+  getLatest,
+  getTopRated,
+  getPopular,
+  getDetails,
+  getImages,
+  getRecommendations,
+  getSimilarMovies,
+  getWatchProviders,
+  getMovieDiscover,
+  getVideos,
+  getCredits,
+};

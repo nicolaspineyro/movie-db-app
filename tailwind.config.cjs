@@ -25,6 +25,11 @@ module.exports = {
           bold: "#950101",
           bolder: "#3D0000",
         },
+        gray: {
+          light: "#E5E5E5",
+          medium: "#7F7F7F",
+          dark: "#333333",
+        },
       },
     },
   },

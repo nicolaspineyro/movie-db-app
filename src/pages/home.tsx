@@ -6,24 +6,19 @@ import ImageSlider from "../components/image-slider";
 import { MovieI } from "../utils/interfaces";
 
 const Home = () => {
-  const { data: nowPlayingMovies, isLoading } = useQuery(
-    ["nowPlayingMovies"],
-    () => getNowPlaying(),
-    { retry: false }
-  );
   const { data: genresList, isLoading: genresLoading } = useQuery(
     ["genresList"],
     () => getGenresList(),
     { retry: false }
   );
 
-  if (isLoading || genresLoading) {
+  if (genresLoading) {
     return <p>Loading...</p>;
   }
 
   return (
     <>
-      <ImageSlider data={nowPlayingMovies} genres={genresList} />
+      <ImageSlider genres={genresList} />
       <HomeContent genres={genresList} />
     </>
   );
