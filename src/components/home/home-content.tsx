@@ -13,9 +13,9 @@ const HomeContent = ({ genres }: { genres: GenresI[] }) => {
   }
 
   return (
-    <section className="text-white py-10 px-4 space-y-5">
+    <section className="text-gray-dark py-5 px-4 space-y-5">
       <div className="">
-      <span className="text-2xl font-bold">Popular Movies</span>
+        <span className="text-2xl font-bold">Popular Movies</span>
         <CardsLayout data={popularMoviesData.results} genres={genres} />
       </div>
     </section>

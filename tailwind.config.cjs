@@ -30,6 +30,10 @@ module.exports = {
           medium: "#7F7F7F",
           dark: "#333333",
         },
+        white: {
+          default: "#FFFFFF",
+          neutral: "#F0EDE5",
+        },
       },
     },
   },

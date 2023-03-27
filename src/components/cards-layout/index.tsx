@@ -18,8 +18,8 @@ const CardsLayout = ({
           )?.name;
 
           return (
-            <Link to={`/movie/${id}`} key={`movie-card-${index}`}>
-              <article className="w-screen text-white py-5 flex">
+            <Link to={`/movie/${id}`} key={`movie-card-${index}`} className={'border-b mx-5'}>
+              <article className="w-screen text-gray-dark py-5 flex">
                 <img
                   className="w-1/2 rounded-md"
                   src={`${import.meta.env.VITE_BASE_IMG_URL}${backdrop_path}`}

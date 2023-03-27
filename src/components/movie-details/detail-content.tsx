@@ -45,7 +45,7 @@ const DetailContent = ({
         }}
         className="h-[45vh] bg-center bg-cover flex items-end "
       >
-        <div className="bg-gradient-to-t from-black to-transparent h-40 w-full"></div>
+        <div className="bg-gradient-to-t from-white to-transparent h-20 w-full"></div>
       </div>
       <div className="px-4 space-y-4 w-full py-5">
         <div className="flex space-y-4 justify-center items-center flex-col">
@@ -58,9 +58,9 @@ const DetailContent = ({
             <h1 className="text-3xl font-bold text-center">{title}</h1>
           )}
 
-          <span className="text-center">{tagline}</span>
+          <span className="text-center text-gray-dark">{tagline}</span>
 
-          <ul className="text-xs text-gray-light text-center space-x-2 flex">
+          <ul className="text-xs text-gray-dark text-center space-x-2 flex">
             <li>{genre}</li>
             <li>{date}</li>
             <li>
@@ -78,12 +78,12 @@ const DetailContent = ({
             )}
           </ul>
 
-          <button className="bg-white space-x-3 flex items-center justify-center text-black py-3  px-8 text-lg font-medium rounded-lg">
+          <button className="bg-gray-dark space-x-3 flex items-center justify-center text-white py-3  px-8 text-lg font-medium rounded-lg">
             <BsPlus />
             <span>Add to Favorites</span>
           </button>
         </div>
-        <div className="flex flex-col text-gray-light">
+        <div className="flex flex-col text-gray-dark">
           <p
             className={`text-md transition-all text-justify ${
               showMore ? "" : "line-clamp-3"
@@ -94,7 +94,7 @@ const DetailContent = ({
 
           <button
             onClick={() => setShowMore(!showMore)}
-            className="text-xs self-end text-gray-light"
+            className="text-xs self-end text-gray-dark"
           >
             {`Show ${showMore ? "Less" : "More"}`}
           </button>
