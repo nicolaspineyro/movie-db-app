@@ -41,7 +41,7 @@ const RelatedContent = ({
         className="w-full h-[70vh] bg-cover bg-center bg-no-repeat flex  flex-col justify-end"
       >
         <div className="space-y-2 bg-gradient-to-t from-[#7F7F7F] via-[#7F7F7F] to-transparent">
-          <span className="text-3xl font-semibold px-4">{genre.name}</span>
+          <span className="text-2xl font-semibold px-4">{genre.name}</span>
           <p className="text-sm w-3/4 text-justify px-4">
             Explore similar movies. Click on any movie poster to learn more
             about the cast, crew, and reviews.

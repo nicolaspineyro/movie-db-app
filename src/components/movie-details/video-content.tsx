@@ -21,9 +21,9 @@ const VideoContent = ({ id }: { id?: string }) => {
   }
 
   return (
-    <section className="py-3 space-y-3 bg-black ">
-      <span className="px-4 text-2xl font-semibold">Videos</span>
-      <div className="flex px-2 overflow-scroll space-x-6 scrollbar-hide">
+    <section className="space-y-3 ">
+      <span className="px-4 text-2xl font-semibold text-gray-dark">Videos</span>
+      <div className="flex px-2 py-3 overflow-scroll space-x-6 scrollbar-hide">
         {videos.results
           ?.filter(({ name }: { name: string }) => name.includes("Trailer"))
           .map(

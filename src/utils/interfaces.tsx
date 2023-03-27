@@ -18,7 +18,7 @@ interface MovieI {
   id: number;
   imdb_id: string;
   genre_ids?: number[];
-  genres?: GenresI[];
+  genres: GenresI[];
   production_companies: { id: number; name: string; logo_path?: string }[];
   poster_path: string;
   backdrop_path: string;
@@ -29,6 +29,7 @@ interface MovieI {
   release_date: string;
   runtime: number;
   vote_average: number;
+  vote_count: number;
   original_language: string;
   budget: number;
   revenue: number;

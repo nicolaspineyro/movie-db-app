@@ -96,12 +96,28 @@ const getSimilarMovies = async (id?: string) => {
     .then((res) => res.data);
 };
 
-const getMovieDiscover = async ({ with_genres }: { with_genres: number }) => {
+const getMovieDiscover = async (params: { with_genres: number }) => {
   return axios
     .get(`discover/movie`, {
-      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY, with_genres },
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY, ...params },
     })
     .then((res) => res.data);
+};
+
+const getUpcomming = async () => {
+  return axios
+    .get(`movie/upcoming`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data.results);
+};
+
+const getReviews = async (id?: string) => {
+  return axios
+    .get(`movie/${id}/reviews`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data.results);
 };
 
 export {
@@ -118,4 +134,6 @@ export {
   getMovieDiscover,
   getVideos,
   getCredits,
+  getUpcomming,
+  getReviews,
 };

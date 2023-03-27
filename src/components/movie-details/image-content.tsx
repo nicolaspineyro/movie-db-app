@@ -1,4 +1,5 @@
 const ImageContent = ({ data }: { data: any[] }) => {
+  if (!data) return <></>;
   return (
     <section className="bg-gray-medium pb-4 space-y-4">
       <span className=" px-4 text-2xl font-semibold">Images</span>

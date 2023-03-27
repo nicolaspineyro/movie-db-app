@@ -14,8 +14,8 @@ import VideoContent from "../components/movie-details/video-content";
 import ImageContent from "../components/movie-details/image-content";
 import Cast from "../components/movie-details/cast";
 import RelatedContent from "../components/movie-details/related-content";
-import AditionalContent from "../components/movie-details/aditional-content";
-import TextContent from "../components/movie-details/aditional-content";
+import AditionalContent from "../components/movie-details/text-content";
+import TextContent from "../components/movie-details/text-content";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -50,7 +50,7 @@ const MovieDetails = () => {
 
   return (
     <section className="text-white">
-      <DetailContent data={data} images={images} />
+      <DetailContent id={id} data={data} images={images} />
       <VideoContent id={id} />
       <RelatedContent
         id={id}
@@ -59,7 +59,7 @@ const MovieDetails = () => {
       />
       <ImageContent data={images?.backdrops} />
       <Cast id={id} />
-      <TextContent data={data} />
+      <TextContent data={data} id={id} />
     </section>
   );
 };

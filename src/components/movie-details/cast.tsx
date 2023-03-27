@@ -52,11 +52,9 @@ const Cast = ({ id }: { id?: string }) => {
                     </span>
                   </div>
                 )}
-                <div className="text-center w-32 h-full">
+                <div className="text-center w-32 h-24">
                   <p className="text-md">{name}</p>
-                  <p className="text-sm text-black line-clamp-2">
-                    {character}
-                  </p>
+                  <p className="text-sm text-black line-clamp-2">{character}</p>
                 </div>
               </div>
             )
