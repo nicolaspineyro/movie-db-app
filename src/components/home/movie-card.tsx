@@ -17,7 +17,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
           className={"object-cover rounded-3xl"}
         />
         <div className="absolute bottom-8 left-8  w-[80%] space-y-3">
-          <span className="text-2xl shadow-2xl text-ellipsis">{title}</span>
+          <span className="text-3xl shadow-2xl">{title}</span>
           <p className="text-xs truncate opacity-80">{overview}</p>
         </div>
       </Link>

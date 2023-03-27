@@ -3,21 +3,25 @@ import { BsPlus } from "react-icons/bs";
 import { capitalize } from "../../utils/helpers";
 import { MovieI } from "../../utils/interfaces";
 
-const DetailContent = ({ data, images }: { data: MovieI; images: any[] }) => {
+const DetailContent = ({
+  data,
+  images,
+}: {
+  data: MovieI;
+  images: any[];
+  id: string;
+}) => {
   const [showMore, setShowMore] = useState(false);
   if (!data || !images) return <></>;
 
   const {
     backdrop_path,
-    production_companies,
     title,
     genres,
     release_date,
-    poster_path,
     tagline,
     overview,
     runtime,
-    vote_average,
     spoken_languages,
     original_language,
   }: MovieI = data;
@@ -43,7 +47,7 @@ const DetailContent = ({ data, images }: { data: MovieI; images: any[] }) => {
       >
         <div className="bg-gradient-to-t from-black to-transparent h-40 w-full"></div>
       </div>
-      <div className="px-5 space-y-4 w-full py-5">
+      <div className="px-4 space-y-4 w-full py-5">
         <div className="flex space-y-4 justify-center items-center flex-col">
           {logoPath ? (
             <img
@@ -51,7 +55,7 @@ const DetailContent = ({ data, images }: { data: MovieI; images: any[] }) => {
               src={`${import.meta.env.VITE_BASE_IMG_URL}${logoPath}`}
             />
           ) : (
-            <h1 className="text-3xl font-bold">{title}</h1>
+            <h1 className="text-3xl font-bold text-center">{title}</h1>
           )}
 
           <span className="text-center">{tagline}</span>
