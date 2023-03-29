@@ -18,7 +18,7 @@
       scrollbar-width: none;  /* Firefox */
     }
 
-    .sidebar-icon {
+    /* .sidebar-icon {
       @apply relative flex items-center justify-center 
       h-12 w-12 mt-2 mb-2 mx-auto  
     bg-gray-400 hover:bg-red-default dark:bg-white
@@ -39,6 +39,6 @@
     @apply bg-gray-200 dark:bg-white
     border border-gray-200 dark:border-white rounded-full
     mx-2;
-  }
+  } */
 
 }

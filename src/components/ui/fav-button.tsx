@@ -7,7 +7,7 @@ const FavButton = ({ initialState }: { initialState: boolean }) => {
     <button
       onClick={() => setSelected(!selected)}
       className={` ${
-        selected ? "text-red-default" : "text-white"
+        selected ? "text-red-default" : "text-white-default"
       } rounded-2xl transition-all duration-300 ease-linear shadow-lg p-3`}
     >
       <FaHeart size={50} />

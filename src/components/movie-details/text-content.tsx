@@ -73,7 +73,7 @@ const TextContent = ({ data, id }: { data: MovieI; id: string }) => {
               case "string": {
                 return (
                   <div key={key}>
-                    <p className="text-sm">{title}:</p>
+                    <p className="text-sm">{title}</p>
                     <span className="text-sm text-gray-medium">{value}</span>
                   </div>
                 );

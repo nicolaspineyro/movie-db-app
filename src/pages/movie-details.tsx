@@ -49,7 +49,7 @@ const MovieDetails = () => {
   };
 
   return (
-    <section className="text-white">
+    <section className="text-white-default">
       <DetailContent id={id} data={data} images={images} />
       <VideoContent id={id} />
       <RelatedContent
