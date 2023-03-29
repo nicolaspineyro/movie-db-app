@@ -1,8 +1,15 @@
 import { FaSearch } from "react-icons/fa";
 
-const SearchBar = () => {
+const SearchBar = ({
+  onClick,
+}: {
+  onClick: React.MouseEventHandler<HTMLDivElement>;
+}) => {
   return (
-    <div className="flex items-center justify-end space-x-2 opacity-80">
+    <div
+      onClick={onClick}
+      className=""
+    >
       <FaSearch className="w-5 h-5" />
     </div>
   );
