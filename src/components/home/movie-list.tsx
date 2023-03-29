@@ -9,7 +9,7 @@ const MovieList = ({
   isLoading: boolean;
 }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 sm:space-x-4 text-white">
+    <div className="grid grid-cols-1 sm:grid-cols-3 sm:space-x-4 text-white-default">
       {isLoading ? (
         <p>loading..</p>
       ) : (

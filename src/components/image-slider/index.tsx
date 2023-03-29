@@ -39,14 +39,14 @@ const ImageSlider = ({ genres }: { genres: GenresI[] }) => {
   return (
     <article className="w-full h-[70vh] px-5 py-2">
       <figure
-        className="w-full h-full will-change-contents shadow-2xl overflow-hidden bg-center bg-cover bg-no-repeat flex flex-col justify-end duration-700 sm:hidden rounded-xl"
+        className="w-full h-full will-change-contents transition-opacity shadow-2xl overflow-hidden bg-center bg-cover bg-no-repeat flex flex-col justify-end duration-1000 sm:hidden rounded-xl"
         style={{
           backgroundImage: `url(${
             import.meta.env.VITE_BASE_IMG_URL
           }${poster_path})`,
         }}
       >
-        <figcaption className="flex text-white flex-col space-y-2 justify-center from- w-full bg-gradient-to-t from-black via-black h-3/4 py-10 px-5 duration-1000">
+        <figcaption className="flex text-white-default flex-col space-y-2  will-change-contents transition-opacity  justify-center w-full bg-gradient-to-t from-black via-black py-10 px-5 duration-1000">
           <Link to={`movie/${id}`}>
             <span className="text-3xl font-bold">{title}</span>
           </Link>

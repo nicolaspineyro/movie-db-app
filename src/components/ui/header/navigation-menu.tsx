@@ -15,7 +15,7 @@ const NavigationMenu = () => {
         onClick={() => setToggleMenu(!toggleMenu)}
       >
         <button
-          className="flex items-center p-3"
+          className="flex items-center"
           onClick={() => console.log("show")}
         >
           <TiThMenuOutline className="w-6 h-6" />

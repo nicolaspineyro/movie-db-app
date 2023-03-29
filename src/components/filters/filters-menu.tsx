@@ -16,7 +16,7 @@ const FiltersMenu = ({
             key={`menu-icon-${id}`}
             className={` ${
               selected === id
-                ? "text-white bg-red-default"
+                ? "text-white-default bg-red-default"
                 : "text-red-default bg-white"
             } rounded-2xl transition-all duration-300 ease-linear shadow-lg p-6`}
             onClick={() =>

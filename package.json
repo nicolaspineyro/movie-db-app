@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "tailwind": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
     "preview": "vite preview"
   },
   "dependencies": {

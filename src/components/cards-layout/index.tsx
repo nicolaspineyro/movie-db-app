@@ -18,7 +18,11 @@ const CardsLayout = ({
           )?.name;
 
           return (
-            <Link to={`/movie/${id}`} key={`movie-card-${index}`} className={'border-b mx-5'}>
+            <Link
+              to={`/movie/${id}`}
+              key={`movie-card-${index}`}
+              className={"border-b-[0.5px] border-gray-dark mx-5"}
+            >
               <article className="w-screen text-gray-dark py-5 flex">
                 <img
                   className="w-1/2 rounded-md"

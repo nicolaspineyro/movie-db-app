@@ -37,7 +37,7 @@ const Favorites = () => {
               />
             </Link>
             <button
-              className="px-3 py-4 mx-auto my-5 rounded-xl bg-red-default text-white flex items-center"
+              className="px-3 py-4 mx-auto my-5 rounded-xl bg-red-default text-white-default flex items-center"
               onClick={() => deleteFromFavorites(id)}
             >
               Remove from favorites <FaHeartBroken className="ml-3" />

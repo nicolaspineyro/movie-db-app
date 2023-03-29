@@ -45,7 +45,7 @@ const DetailContent = ({
         }}
         className="h-[45vh] bg-center bg-cover flex items-end "
       >
-        <div className="bg-gradient-to-t from-white to-transparent h-20 w-full"></div>
+        <div className="bg-gradient-to-t from-white-neutral to-transparent h-20 w-full"></div>
       </div>
       <div className="px-4 space-y-4 w-full py-5">
         <div className="flex space-y-4 justify-center items-center flex-col">
@@ -78,7 +78,7 @@ const DetailContent = ({
             )}
           </ul>
 
-          <button className="bg-gray-dark space-x-3 flex items-center justify-center text-white py-3  px-8 text-lg font-medium rounded-lg">
+          <button className="bg-gray-dark space-x-3 flex items-center justify-center text-white-default py-3  px-8 text-lg font-medium rounded-lg">
             <BsPlus />
             <span>Add to Favorites</span>
           </button>
