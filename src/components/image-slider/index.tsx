@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
-import { getNowPlaying, getUpcomming } from "../../api/movies";
+import { getNowPlaying, getTrending, getUpcomming } from "../../api/movies";
 import { GenresI, MovieI } from "../../utils/interfaces";
 import { MovieDataBaseIcon } from "../icons";
 
 const ImageSlider = ({ genres }: { genres: GenresI[] }) => {
   const [index, setIndex] = useState<number>(0);
   const [page, setPage] = useState(1);
-  const { data, isLoading } = useQuery(["getUpcomming"], () => getUpcomming(), {
-    retry: false,
-  });
+  const { data, isLoading } = useQuery(
+    ["getTrending"],
+    () => getTrending("all"),
+    {
+      retry: false,
+    }
+  );
 
   setTimeout(() => {
     if (index < data.length - 1) {
@@ -43,7 +47,7 @@ const ImageSlider = ({ genres }: { genres: GenresI[] }) => {
         style={{
           backgroundImage: `url(${
             import.meta.env.VITE_BASE_IMG_URL
-          }${poster_path})`,
+          }${backdrop_path})`,
         }}
       >
         <figcaption className="flex text-white-default flex-col space-y-2  will-change-contents transition-opacity  justify-center w-full bg-gradient-to-t from-black via-black py-10 px-5 duration-1000">

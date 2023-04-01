@@ -120,6 +120,26 @@ const getReviews = async (id?: string) => {
     .then((res) => res.data.results);
 };
 
+const getTrending = async (search: string) => {
+  return axios
+    .get(`trending/${search}/week`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data.results);
+};
+
+const multiSearch = async (query: string) => {
+  return axios
+    .get(`search/multi`, {
+      params: {
+        api_key: import.meta.env.VITE_MOVIE_DB_KEY,
+        query,
+        include_adult: false,
+      },
+    })
+    .then((res) => res.data.results);
+};
+
 export {
   getNowPlaying,
   getGenresList,
@@ -135,5 +155,7 @@ export {
   getVideos,
   getCredits,
   getUpcomming,
+  getTrending,
   getReviews,
+  multiSearch,
 };
