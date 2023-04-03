@@ -45,17 +45,19 @@ const DetailContent = ({
         }}
         className="h-[45vh] bg-center bg-cover flex items-end "
       >
-        <div className="bg-gradient-to-t from-white-neutral to-transparent h-20 w-full"></div>
+        {/* <div className="bg-gradient-to-t from-white-neutral to-transparent h-20 w-full"></div> */}
       </div>
       <div className="px-4 space-y-4 w-full py-5">
-        <div className="flex space-y-4 justify-center items-center flex-col">
+        <div className="flex space-y-4 justify-center items-center flex-col px-5">
           {logoPath ? (
             <img
               alt={"movie-logo"}
               src={`${import.meta.env.VITE_BASE_IMG_URL}${logoPath}`}
             />
           ) : (
-            <h1 className="text-3xl font-bold text-center">{title}</h1>
+            <h1 className="text-3xl font-bold text-center text-gray-dark">
+              {title}
+            </h1>
           )}
 
           <span className="text-center text-gray-dark">{tagline}</span>

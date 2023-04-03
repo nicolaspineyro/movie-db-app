@@ -29,49 +29,68 @@ const ImageSlider = ({ genres }: { genres: GenresI[] }) => {
     return <></>;
   }
 
-  const {
-    backdrop_path,
-    title,
-    poster_path,
-    overview,
-    genre_ids,
-    tagline,
-    vote_average,
-    id,
-  } = data[index];
+  // const {
+  //   backdrop_path,
+  //   title,
+  //   poster_path,
+  //   overview,
+  //   genre_ids,
+  //   original_title,
+  //   name,
+  //   tagline,
+  //   vote_average,
+  //   id,
+  // } = data[index];
 
   return (
-    <article className="w-full h-[70vh] px-5 py-2">
-      <figure
-        className="w-full h-full will-change-contents transition-opacity shadow-2xl overflow-hidden bg-center bg-cover bg-no-repeat flex flex-col justify-end duration-1000 sm:hidden rounded-xl"
-        style={{
-          backgroundImage: `url(${
-            import.meta.env.VITE_BASE_IMG_URL
-          }${backdrop_path})`,
-        }}
-      >
-        <figcaption className="flex text-white-default flex-col space-y-2  will-change-contents transition-opacity  justify-center w-full bg-gradient-to-t from-black via-black py-10 px-5 duration-1000">
-          <Link to={`movie/${id}`}>
-            <span className="text-3xl font-bold">{title}</span>
-          </Link>
+    <section className="flex overflow-auto scrollbar-hide">
+      {data.map(
+        (
+          {
+            backdrop_path,
+            title,
+            name,
+            genres,
+            genre_ids,
+            overview,
+            id,
+          }: MovieI,
+          index: number
+        ) => (
+          <article className="w-[100%] flex-shrink-0 h-[70vh] px-5 py-2">
+            <figure
+              className="w-full h-full will-change-contents transition-opacity shadow-3xl overflow-hidden bg-center bg-cover bg-no-repeat flex flex-col justify-end duration-1000 sm:hidden rounded-xl"
+              style={{
+                backgroundImage: `url(${
+                  import.meta.env.VITE_BASE_IMG_URL
+                }${backdrop_path})`,
+              }}
+            >
+              <figcaption className="flex text-white-default flex-col space-y-2  will-change-contents transition-opacity  justify-center w-full bg-gradient-to-t from-black via-black py-10 px-5 duration-1000">
+                <Link to={`movie/${id}`}>
+                  <span className="text-3xl font-bold">{title || name}</span>
+                </Link>
 
-          <div className="flex flex-col b space-y-4">
-            <div className="flex space-x-3">
-              <span className="text-gray-300 text-xs font-extralight">
-                {
-                  genres?.find(
-                    (genre) => genre_ids && genre.id === genre_ids[0]
-                  )?.name
-                }
-              </span>
-            </div>
-            <span className="text-gray-300 text-md line-clamp-3">
-              {overview}
-            </span>
-          </div>
-        </figcaption>
-      </figure>
-    </article>
+                <div className="flex flex-col b space-y-4">
+                  <div className="flex space-x-3">
+                    <span className="text-gray-300 text-xs font-extralight">
+                      {
+                        genres?.find(
+                          (genre) => genre_ids && genre.id === genre_ids[0]
+                        )?.name
+                      }
+                    </span>
+                  </div>
+                  <span className="text-gray-300 text-md line-clamp-3">
+                    {overview}
+                  </span>
+                </div>
+              </figcaption>
+            </figure>
+          </article>
+        )
+      )}
+    </section>
   );
 };
 
