@@ -128,6 +128,14 @@ const getTrending = async (search: string) => {
     .then((res) => res.data.results);
 };
 
+const getTrendingPerson = async () => {
+  return axios
+    .get(`trending/person/week`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data.results);
+};
+
 const multiSearch = async (query: string) => {
   return axios
     .get(`search/multi`, {
@@ -158,4 +166,5 @@ export {
   getTrending,
   getReviews,
   multiSearch,
+  getTrendingPerson,
 };

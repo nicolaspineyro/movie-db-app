@@ -37,10 +37,15 @@ interface MovieI {
   homepage: string;
   production_countries: { iso_3166_1: string; name: string }[];
 }
+interface PersonI {
+  id: number;
+  name: string;
+  profile_path: string;
+}
 
 interface GenresI {
   id: number;
   name: string;
 }
 
-export type { RouteI, MovieI, GenresI };
+export type { RouteI, MovieI, GenresI, PersonI };

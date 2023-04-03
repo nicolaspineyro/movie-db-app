@@ -35,7 +35,7 @@ const RelatedContent = ({
       <div
         style={{
           backgroundImage: `url(${import.meta.env.VITE_BASE_IMG_URL}/${
-            image.file_path
+            image?.file_path
           })`,
         }}
         className="w-full h-[70vh] bg-cover bg-center bg-no-repeat flex  flex-col justify-end"
