@@ -20,25 +20,22 @@ import TextContent from "../components/movie-details/text-content";
 const MovieDetails = () => {
   const { id } = useParams();
 
-  const { data, isLoading, refetch } = useQuery(
-    "getDetails",
+  const { data, isLoading } = useQuery(
+    ["getDetails", id],
     () => getDetails(id),
     {
       enabled: !!id,
+      refetchOnMount: true,
     }
   );
-  const {
-    data: images,
-    isLoading: imagesLoading,
-    refetch: imageRefetch,
-  } = useQuery("getImages", () => getImages(id), {
-    enabled: !!id,
-  });
-
-  useEffect(() => {
-    refetch();
-    imageRefetch();
-  }, [id]);
+  const { data: images, isLoading: imagesLoading } = useQuery(
+   ["getImages",id],
+    () => getImages(id),  
+    {
+      enabled: !!id,
+      refetchOnMount: true,
+    }
+  );
 
   if (!images || !id || imagesLoading || isLoading) {
     return <></>;

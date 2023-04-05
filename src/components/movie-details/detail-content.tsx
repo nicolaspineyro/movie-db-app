@@ -52,6 +52,7 @@ const DetailContent = ({
           {logoPath ? (
             <img
               alt={"movie-logo"}
+              className={"w-60"}
               src={`${import.meta.env.VITE_BASE_IMG_URL}${logoPath}`}
             />
           ) : (

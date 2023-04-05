@@ -3,6 +3,7 @@ import Home from "../pages/home";
 import { RouteI } from "./interfaces";
 import Favorites from "../pages/favorites";
 import SearchPage from "../pages/search";
+import PersonDetails from "../pages/person-details";
 
 export const AppRoutes: RouteI[] = [
   {
@@ -20,13 +21,19 @@ export const AppRoutes: RouteI[] = [
   },
   {
     id: 2,
+    name: "person-details",
+    path: "/person/:id",
+    compontent: <PersonDetails />,
+  },
+  {
+    id: 3,
     name: "search",
     path: "/search",
     compontent: <SearchPage />,
     menu: true,
   },
   {
-    id: 3,
+    id: 4,
     name: "favorites",
     path: "/favorites",
     compontent: <Favorites />,
