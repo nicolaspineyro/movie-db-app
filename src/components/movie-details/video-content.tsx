@@ -4,17 +4,14 @@ import { getVideos } from "../../api/movies";
 import YoutubeEmbed from "../youtube-embed";
 
 const VideoContent = ({ id }: { id?: string }) => {
-  const {
-    data: videos,
-    isLoading: videosLoading,
-    refetch,
-  } = useQuery("getVideos", () => getVideos(id), {
-    enabled: !!id,
-  });
-
-  useEffect(() => {
-    refetch();
-  }, [id]);
+  const { data: videos, isLoading: videosLoading } = useQuery(
+    "getVideos",
+    () => getVideos(id),
+    {
+      enabled: !!id,
+      refetchOnMount: true,
+    }
+  );
 
   if (!videos) {
     return <></>;

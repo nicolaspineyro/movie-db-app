@@ -10,7 +10,7 @@ const ImageSlider = ({ genres }: { genres: GenresI[] }) => {
   const [page, setPage] = useState(1);
   const { data, isLoading } = useQuery(
     ["getTrending"],
-    () => getTrending("all"),
+    () => getTrending("movie"),
     {
       retry: false,
     }
@@ -46,15 +46,7 @@ const ImageSlider = ({ genres }: { genres: GenresI[] }) => {
     <section className="flex overflow-auto scrollbar-hide">
       {data.map(
         (
-          {
-            backdrop_path,
-            title,
-            name,
-            genres,
-            genre_ids,
-            overview,
-            id,
-          }: MovieI,
+          { backdrop_path, title, genres, genre_ids, overview, id }: MovieI,
           index: number
         ) => (
           <article className="w-[100%] flex-shrink-0 h-[70vh] px-5 py-2">

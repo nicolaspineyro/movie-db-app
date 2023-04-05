@@ -1,21 +1,15 @@
 import { useEffect } from "react";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import { getCredits } from "../../api/movies";
 import { getInitials } from "../../utils/helpers";
 
 const Cast = ({ id }: { id?: string }) => {
-  const { data, isLoading, refetch } = useQuery(
-    "getCredits",
-    () => getCredits(id),
-    {
-      enabled: !!id,
-    }
-  );
+  const { data, isLoading } = useQuery("getCredits", () => getCredits(id), {
+    enabled: !!id,
+    refetchOnMount: true,
+  });
   const cast = data?.cast;
-
-  useEffect(() => {
-    refetch();
-  }, [id]);
 
   if (!cast) return <></>;
 
@@ -28,13 +22,20 @@ const Cast = ({ id }: { id?: string }) => {
           .map(
             (
               {
+                id,
                 name,
                 profile_path,
                 character,
-              }: { name: string; profile_path: string; character: string },
+              }: {
+                name: string;
+                profile_path: string;
+                character: string;
+                id: string;
+              },
               index: number
             ) => (
-              <div
+              <Link
+                to={`/person/${id}`}
                 key={`cast-${index}`}
                 className={
                   "flex-shrink-0 space-y-4 items-center justify-center"
@@ -56,7 +57,7 @@ const Cast = ({ id }: { id?: string }) => {
                   <p className="text-md">{name}</p>
                   <p className="text-sm text-black line-clamp-2">{character}</p>
                 </div>
-              </div>
+              </Link>
             )
           )}
       </div>

@@ -96,7 +96,10 @@ const getSimilarMovies = async (id?: string) => {
     .then((res) => res.data);
 };
 
-const getMovieDiscover = async (params: { with_genres: number }) => {
+const getMovieDiscover = async (params: {
+  with_genres?: number;
+  with_people?: string;
+}) => {
   return axios
     .get(`discover/movie`, {
       params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY, ...params },
@@ -148,6 +151,14 @@ const multiSearch = async (query: string) => {
     .then((res) => res.data.results);
 };
 
+const getPerson = async (id?: string) => {
+  return axios
+    .get(`person/${id}`, {
+      params: { api_key: import.meta.env.VITE_MOVIE_DB_KEY },
+    })
+    .then((res) => res.data);
+};
+
 export {
   getNowPlaying,
   getGenresList,
@@ -161,6 +172,7 @@ export {
   getWatchProviders,
   getMovieDiscover,
   getVideos,
+  getPerson,
   getCredits,
   getUpcomming,
   getTrending,
